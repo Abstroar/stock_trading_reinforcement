@@ -10,6 +10,7 @@ import re
 import os
 import pickle
 from sklearn.preprocessing import StandardScaler
+from tensorflow.python.client import device_lib
 import tensorflow as tf
 
 def get_data():
@@ -229,11 +230,14 @@ def play_one_episode(agent, env, is_train):
 
 if __name__ == '__main__':
 
+
+    print(device_lib.list_local_devices())
+
     # config
     models_folder = 'rl_trader_models'
     rewards_folder = 'rl_trader_rewards'
     model_file = 'dqn.weights.h5'
-    num_episodes = 2000
+    num_episodes = 50
     batch_size = 32
     initial_investment = 20000
 
